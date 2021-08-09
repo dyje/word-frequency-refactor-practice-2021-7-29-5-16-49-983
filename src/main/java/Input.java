@@ -1,19 +1,19 @@
 public class Input {
-    private String value;
-    private int count;
+    private String word;
+    private int wordCount;
 
-    public Input(String w, int i){
-        this.value =w;
-        this.count =i;
+    public Input(String word, int wordCount){
+        this.word =word;
+        this.wordCount =wordCount;
     }
 
 
-    public String getValue() {
-        return this.value;
+    public String getWord() {
+        return this.word;
     }
 
     public int getWordCount() {
-        return this.count;
+        return this.wordCount;
     }
 
 
