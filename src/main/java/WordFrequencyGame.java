@@ -12,7 +12,7 @@ public class WordFrequencyGame {
     public String getResult(String wholeSentence){
 
 
-        if (wholeSentence.split(WHITE_SPACE).length==1) {
+        if (isSingleWord(wholeSentence)) {
             return wholeSentence + " 1";
         } else {
 
@@ -53,6 +53,9 @@ public class WordFrequencyGame {
         }
     }
 
+    private boolean isSingleWord (String wholeSentence){
+        return wholeSentence.split(WHITE_SPACE).length == DEFAULT_WORD_COUNT;
+    }
 
     private Map<String,List<Input>> getListMap(List<Input> inputList) {
         Map<String, List<Input>> map = new HashMap<>();
