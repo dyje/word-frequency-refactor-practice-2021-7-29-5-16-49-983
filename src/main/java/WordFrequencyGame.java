@@ -27,18 +27,18 @@ public class WordFrequencyGame {
         return wholeSentence.split(WHITE_SPACE).length == DEFAULT_WORD_COUNT;
     }
 
-    private List<WordInfo> calculateWordFrequency (String wholeSentence){
+    private List<WordInfo> calculateWordFrequency(String wholeSentence) {
         List<String> words = Arrays.asList(wholeSentence.split(WHITE_SPACE));
         List<WordInfo> wordInfo = new ArrayList<>();
-        for (String word: new HashSet<>(words)){
-            int count = Collections.frequency(words,word);
+        for (String word : new HashSet<>(words)) {
+            int count = Collections.frequency(words, word);
             wordInfo.add(new WordInfo(word, count));
         }
         wordInfo.sort((firstWordInfo, secondWordInfo) -> secondWordInfo.getWordCount() - firstWordInfo.getWordCount());
         return wordInfo;
     }
 
-    private String consolidateWords (List<WordInfo> wordInfoList){
+    private String consolidateWords(List<WordInfo> wordInfoList) {
         wordInfoList.sort((word1, word2) -> word2.getWordCount() - word1.getWordCount());
 
         StringJoiner joiner = new StringJoiner("\n");
@@ -65,8 +65,6 @@ public class WordFrequencyGame {
 
         return map;
     }
-
-
 
 
 }
