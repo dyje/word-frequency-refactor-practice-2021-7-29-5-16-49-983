@@ -7,6 +7,7 @@ import java.util.StringJoiner;
 public class WordFrequencyGame {
 
     public static final String WHITE_SPACE = "\\s+";
+    public static final int DEFAULT_WORD_COUNT = 1;
 
     public String getResult(String wholeSentence){
 
