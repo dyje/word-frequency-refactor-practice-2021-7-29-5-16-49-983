@@ -4,12 +4,13 @@ public class WordFrequencyGame {
 
     public static final String WHITE_SPACE = "\\s+";
     public static final int DEFAULT_WORD_COUNT = 1;
+    public static final String ERROR = "Calculate Error";
 
     public String getResult(String wholeSentence) {
 
 
         if (isSingleWord(wholeSentence)) {
-            return wholeSentence + " 1";
+            return wholeSentence + DEFAULT_WORD_COUNT;
         }
         try {
             List<WordInfo> wordInfoList = calculateWordFrequency(wholeSentence);
@@ -18,7 +19,7 @@ public class WordFrequencyGame {
         } catch (Exception e) {
 
 
-            return "Calculate Error";
+            return ERROR;
         }
 
     }
