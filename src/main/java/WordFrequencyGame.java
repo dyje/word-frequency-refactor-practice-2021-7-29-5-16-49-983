@@ -39,12 +39,12 @@ public class WordFrequencyGame {
     }
 
     private String consolidateWords (List<WordInfo> wordInfoList){
-        wordInfoList.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
+        wordInfoList.sort((word1, word2) -> word2.getWordCount() - word1.getWordCount());
 
         StringJoiner joiner = new StringJoiner("\n");
-        for (WordInfo w : wordInfoList) {
-            String s = w.getWord() + " " + w.getWordCount();
-            joiner.add(s);
+        for (WordInfo word : wordInfoList) {
+            String output = word.getWord() + " " + word.getWordCount();
+            joiner.add(output);
         }
         return joiner.toString();
     }
