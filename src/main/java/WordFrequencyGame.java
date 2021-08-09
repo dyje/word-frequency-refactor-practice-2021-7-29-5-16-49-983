@@ -13,15 +13,8 @@ public class WordFrequencyGame {
         }
         try {
             List<WordInfo> wordInfoList = calculateWordFrequency(wholeSentence);
+            return consolidateWords(wordInfoList);
 
-            wordInfoList.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
-
-            StringJoiner joiner = new StringJoiner("\n");
-            for (WordInfo w : wordInfoList) {
-                String s = w.getWord() + " " + w.getWordCount();
-                joiner.add(s);
-            }
-            return joiner.toString();
         } catch (Exception e) {
 
 
@@ -45,6 +38,17 @@ public class WordFrequencyGame {
         return wordInfo;
     }
 
+    private String consolidateWords (List<WordInfo> wordInfoList){
+        wordInfoList.sort((w1, w2) -> w2.getWordCount() - w1.getWordCount());
+
+        StringJoiner joiner = new StringJoiner("\n");
+        for (WordInfo w : wordInfoList) {
+            String s = w.getWord() + " " + w.getWordCount();
+            joiner.add(s);
+        }
+        return joiner.toString();
+    }
+
     private Map<String, List<WordInfo>> getListMap(List<WordInfo> inputList) {
         Map<String, List<WordInfo>> map = new HashMap<>();
         for (WordInfo input : inputList) {
@@ -61,6 +65,8 @@ public class WordFrequencyGame {
 
         return map;
     }
+
+
 
 
 }
