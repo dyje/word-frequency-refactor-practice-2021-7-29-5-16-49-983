@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class WordFrequencyGame {
 
@@ -13,6 +14,7 @@ public class WordFrequencyGame {
         try {
             List <String> words = splitByWords(wholeSentence);
             List<WordInfo> wordInfoList = calculateWordFrequency(wholeSentence);
+            wordInfoList = sortWords(wordInfoList);
             return consolidateWords(wordInfoList);
 
         } catch (Exception exception) {
@@ -30,7 +32,6 @@ public class WordFrequencyGame {
             int wordCount = Collections.frequency(words, word);
             wordInfo.add(new WordInfo(word, wordCount));
         }
-        wordInfo.sort((firstWordInfo, secondWordInfo) -> secondWordInfo.getWordCount() - firstWordInfo.getWordCount());
         return wordInfo;
     }
 
@@ -48,4 +49,10 @@ public class WordFrequencyGame {
         return Arrays.asList(wholeSentence.split(WHITE_SPACE));
     }
 
+    private List<WordInfo> sortWords(List<WordInfo> wordInfoList){
+        return wordInfoList
+                .stream()
+                .sorted((firstWordInfo, secondWordInfo) -> secondWordInfo.getWordCount() - firstWordInfo.getWordCount())
+                .collect(Collectors.toList());
+    }
 }
