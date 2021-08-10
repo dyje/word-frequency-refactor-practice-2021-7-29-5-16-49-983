@@ -1,4 +1,3 @@
-import java.text.MessageFormat;
 import java.util.*;
 
 public class WordFrequencyGame {
