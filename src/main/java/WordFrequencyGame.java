@@ -12,6 +12,7 @@ public class WordFrequencyGame {
     public String getResult(String wholeSentence) {
 
         try {
+            List <String> words = splitByWords(wholeSentence);
             List<WordInfo> wordInfoList = calculateWordFrequency(wholeSentence);
             return consolidateWords(wordInfoList);
 
@@ -24,7 +25,7 @@ public class WordFrequencyGame {
     }
 
     private List<WordInfo> calculateWordFrequency(String wholeSentence) {
-        List<String> words = Arrays.asList(wholeSentence.split(WHITE_SPACE));
+        List<String> words = splitByWords(wholeSentence);
         List<WordInfo> wordInfo = new ArrayList<>();
         for (String word : new HashSet<>(words)) {
             int wordCount = Collections.frequency(words, word);
@@ -44,5 +45,8 @@ public class WordFrequencyGame {
         return joiner.toString();
     }
 
+    private List<String> splitByWords(String wholeSentence){
+        return Arrays.asList(wholeSentence.split(WHITE_SPACE));
+    }
 
 }
