@@ -15,7 +15,7 @@ public class WordFrequencyGame {
             List<WordInfo> wordInfoList = calculateWordFrequency(wholeSentence);
             return consolidateWords(wordInfoList);
 
-        } catch (Exception e) {
+        } catch (Exception exception) {
 
 
             return ERROR;
