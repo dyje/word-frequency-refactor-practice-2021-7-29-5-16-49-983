@@ -7,22 +7,18 @@ public class WordFrequencyGame {
     public static final int DEFAULT_WORD_COUNT = 1;
     public static final String ERROR = "Calculate Error";
     public static final String NEW_LINE = "\n";
-
-
+    
     public String getResult(String wholeSentence) {
 
         try {
-            List <String> words = splitByWords(wholeSentence);
+            List<String> words = splitByWords(wholeSentence);
             List<WordInfo> wordInfoList = calculateWordFrequency(wholeSentence);
             wordInfoList = sortWords(wordInfoList);
             return consolidateWords(wordInfoList);
 
         } catch (Exception exception) {
-
-
             return ERROR;
         }
-
     }
 
     private List<WordInfo> calculateWordFrequency(String wholeSentence) {
@@ -45,11 +41,11 @@ public class WordFrequencyGame {
         return joiner.toString();
     }
 
-    private List<String> splitByWords(String wholeSentence){
+    private List<String> splitByWords(String wholeSentence) {
         return Arrays.asList(wholeSentence.split(WHITE_SPACE));
     }
 
-    private List<WordInfo> sortWords(List<WordInfo> wordInfoList){
+    private List<WordInfo> sortWords(List<WordInfo> wordInfoList) {
         return wordInfoList
                 .stream()
                 .sorted((firstWordInfo, secondWordInfo) -> secondWordInfo.getWordCount() - firstWordInfo.getWordCount())
