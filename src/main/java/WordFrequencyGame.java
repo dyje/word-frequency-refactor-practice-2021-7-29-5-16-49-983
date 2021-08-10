@@ -11,10 +11,6 @@ public class WordFrequencyGame {
 
     public String getResult(String wholeSentence) {
 
-
-        if (isSingleWord(wholeSentence)) {
-            return MessageFormat.format("{0} {1}",wholeSentence,DEFAULT_WORD_COUNT);
-        }
         try {
             List<WordInfo> wordInfoList = calculateWordFrequency(wholeSentence);
             return consolidateWords(wordInfoList);
@@ -26,11 +22,7 @@ public class WordFrequencyGame {
         }
 
     }
-
-    private boolean isSingleWord(String wholeSentence) {
-        return wholeSentence.split(WHITE_SPACE).length == DEFAULT_WORD_COUNT;
-    }
-
+    
     private List<WordInfo> calculateWordFrequency(String wholeSentence) {
         List<String> words = Arrays.asList(wholeSentence.split(WHITE_SPACE));
         List<WordInfo> wordInfo = new ArrayList<>();
