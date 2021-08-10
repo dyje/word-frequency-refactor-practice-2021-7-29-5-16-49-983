@@ -1,3 +1,4 @@
+import java.text.MessageFormat;
 import java.util.*;
 
 public class WordFrequencyGame {
@@ -10,7 +11,7 @@ public class WordFrequencyGame {
 
 
         if (isSingleWord(wholeSentence)) {
-            return wholeSentence + DEFAULT_WORD_COUNT;
+            return MessageFormat.format("{0} {1}",wholeSentence,DEFAULT_WORD_COUNT);
         }
         try {
             List<WordInfo> wordInfoList = calculateWordFrequency(wholeSentence);
@@ -49,7 +50,6 @@ public class WordFrequencyGame {
         }
         return joiner.toString();
     }
-
     private Map<String, List<WordInfo>> getListMap(List<WordInfo> inputList) {
         Map<String, List<WordInfo>> map = new HashMap<>();
         for (WordInfo input : inputList) {
